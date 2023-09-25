@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Javascript Task5</title>
+    <style>
+        .error {
+            color:red;
+        }
+
+        .error-input {
+            border: 2px solid red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <form align="center" id="registration-form">
+        <table style="margin-left: 500px; margin-top: 100px;" cellpadding="8">
+            <tr>
+                <td align="right">Name:</td>
+                <td align="left"><input type="text" id="firstname" name="firstname"></td>
+                <td align="left"><span id="firstname-error" class="error"></span></td>
+            </tr>
+            <tr>
+                <td align="right">Email:</td>
+                <td align="left"><input type="text" id="email" name="email"></td>
+                <td align="left"><span id="email-error" class="error"></span></td>
+            </tr>
+            <tr>
+                <td align="right">Website:</td>
+                <td align="left"><input type="text" id="website" name="website"></td>
+                <td align="left"><span id="website-error" class="error"></span></td>
+            </tr>
+        </table>
+        <table style="margin-left: 503px;" cellpadding="5">
+            <tr>
+                <td style="vertical-align: top;" align="right" >Message:</td>
+                <td><textarea id="message" name="message" style="height: 80px; width: 250px;"></textarea></td>
+                <td style="vertical-align: top;" align="left"><span id="message-error" class="error"></span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td align="left"><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+        <br>
+        <script>
+            document.getElementById("registration-form").addEventListener("submit", function (event) {
+                clearErrors();
+
+                var firstname = document.getElementById("firstname");
+                var email = document.getElementById("email");
+                var website = document.getElementById("website");
+                var message = document.getElementById("message");
+
+                if (firstname.value === "") {
+                    displayError("firstname-error", "This field is required");
+                    firstname.classList.add("error-input");
+                    event.preventDefault();
+                }
+
+                // Email validation
+                var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                if (!emailRegex.test(email.value)) {
+                    displayError("email-error", "Invalid email format");
+                    email.classList.add("error-input");
+                    event.preventDefault();
+                }
+
+                // Website URL validation
+                var websiteRegex = /^(https?:\/\/)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})(\/\S*)?$/;
+                if (!websiteRegex.test(website.value)) {
+                    displayError("website-error", "Invalid website URL format");
+                    website.classList.add("error-input");
+                    event.preventDefault();
+                }
+
+                if (message.value === "") {
+                    displayError("message-error", "This field is required");
+                    message.classList.add("error-input");
+                    event.preventDefault();
+                }
+            });
+
+            function displayError(elementId, message) {
+                var errorElement = document.getElementById(elementId);
+                errorElement.textContent = message;
+            }
+
+            function clearErrors() {
+                var errorElements = document.querySelectorAll(".error");
+                errorElements.forEach(function (element) {
+                    element.textContent = "";
+                });
+
+                var errorInputs = document.querySelectorAll(".error-input");
+                errorInputs.forEach(function (element) {
+                    element.classList.remove("error-input");
+                });
+            }
+        </script>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript task2</title>
+    <style>
+        .content {
+            margin-left: 200px;
+        }
+    </style>
+    <script>
+        function sortStringAlphabetically(inputString) {
+              return inputString.split('').sort().join('');
+        }
+        function sortAlphabetically() {
+             inputString = document.getElementById("inputString").value;
+             sortedString = sortStringAlphabetically(inputString);
+            document.getElementById("result").innerHTML = "Sorted String: " + sortedString;
+        }
+    </script>
+</head>
+<body>
+    <br><br>
+    <div class="content">
+    <h2>Alphabetical Sorting</h2>
+    <p>Enter a string to sort alphabetically:</p>
+    <input type="text" id="inputString">
+    <button onclick="sortAlphabetically()">Sort</button>
+    <p id="result"></p>
+    </div>
+</body>
+</html>

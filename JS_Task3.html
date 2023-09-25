@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Task3</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        /* Style for the :active pseudo-class (when the button is clicked) */
+        button:active,
+        button:hover {
+            border: 2px solid aqua;
+        }
+
+        .content {
+            margin-left: 200px;
+        }
+    </style>
+    <script>
+        function multiply() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("result").innerHTML = "Please enter valid numbers.";
+            } else {
+                let result = num1 * num2;
+                document.getElementById("result").innerHTML = "The result is:<br>" + result;
+            }
+        }
+
+        function divide() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("result").innerHTML = "Please enter valid numbers.";
+            } else if (num2 === 0) {
+                document.getElementById("result").innerHTML = "Division by zero is not allowed.";
+            } else {
+                let result = num1 / num2;
+                document.getElementById("result").innerHTML = "The result is:<br>" + result;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="content">
+    <br><br>
+    <h3>Multiplication and Division Calculator</h3>
+    <label for="num1">1st Number:</label>
+    <input type="text" id="num1"><br><br>
+    <label for="num2">2nd Number:</label>
+    <input type="text" id="num2"><br><br>
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="divide()">Divide</button>
+    <p id="result"></p>
+    </div>
+</body>
+</html>

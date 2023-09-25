@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript Task1</title>
+    <style>
+        .content {
+            margin-left: 200px;
+        }
+    </style>
+    <script>
+        function reverseNumber(x) {
+            let numStr = x.toString();
+            let reversedStr = numStr.split('').reverse().join('');
+            let reversedNum = parseInt(reversedStr, 10);
+            return reversedNum;
+        }
+
+        function reverseAndDisplay() {
+            let inputNumber = document.getElementById("inputNumber").value;
+            let reversed = reverseNumber(inputNumber);
+            document.getElementById("result").innerHTML = "Reversed Number: " + reversed;
+        }
+    </script>
+</head>
+<body>
+    <br><br>
+    <div class="content">
+    <h2>Reversing a Number</h2>
+    <p>Enter a number to reverse:</p>
+    <input type="number" id="inputNumber">
+    <button onclick="reverseAndDisplay()">Reverse</button>
+    <p id="result"></p>
+    </div>
+</body>
+</html>

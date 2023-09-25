@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript Task4</title>
+    <style>
+        .content {
+            margin-left: 200px;
+        }
+    </style>
+    <script>
+        function showDate() {
+            const currentDate = new Date();
+            const formattedDate = currentDate.toLocaleDateString();
+            document.getElementById("output1").innerHTML = formattedDate;
+        }
+
+        function showTime() {
+            const currentTime = new Date();
+            const formattedTime = currentTime.toString();
+            document.getElementById("output2").innerHTML = formattedTime;
+        }
+    </script>
+</head>
+<body>
+    <div class="content">
+        <br><br>
+        <h3>Date and Time Display</h3>
+        <button onclick="showDate()">Show Date</button>
+        <p id="output1"></p>
+
+        <button onclick="showTime()">Show Time</button>
+        <p id="output2"></p>
+    </div>
+</body>
+</html>
