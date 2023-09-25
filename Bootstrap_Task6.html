@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Form</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            background-color: #ffffff00;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(162, 2, 2, 0.1);
+            margin-top: 50px;
+            max-width: 500px;
+        }
+
+        .form-label {
+            text-align: left;
+        }
+
+        .btn-custom {
+            background-color: rgb(193, 14, 14);
+            width: 100%;
+            color: white;
+        }
+
+        /* Custom select arrow style */
+     
+        .validation-icon:after {
+            content: "\26A0";
+            border-radius: 50%;
+            background-color: white;
+            color: red;
+            font-size: 12px;
+            padding: 2px 5px;
+            position: absolute;
+            right: -15px;
+            top: -4px;
+        }
+
+        /* Validation styles */
+        .has-error {
+            border-color: red !important;
+        }
+
+        .validation-icon {
+            position: absolute;
+            right: 10px;
+            top: calc(50% - 8px);
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="myForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name">
+                <div class="validation-icon"></div>
+                <div class="text-danger" id="name-error"></div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email">
+                <div class="validation-icon"></div>
+                <div class="text-danger" id="email-error"></div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
+                <div class="validation-icon"></div>
+                <div class="text-danger" id="password-error"></div>
+            </div>
+            <div class="mb-3">
+                <label for="hobbies" class="form-label">Hobbies</label>
+                <select class="form-select" id="hobbies" name="hobbies">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="reading">Reading</option>
+                    <option value="gardening">Gardening</option>
+                    <option value="cooking">Cooking</option>
+                    <option value="traveling">Traveling</option>
+                </select>
+                <div class="validation-icon"></div>
+                <div class="text-danger" id="hobbies-error"></div>
+            </div>
+            <button type="submit" class="btn btn-custom">Submit</button>
+        </form>
+    </div>
+
+    <!-- Link to Bootstrap JS and Popper.js (required for Bootstrap functionality) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (e) {
+            let isValid = true;
+
+            // Reset validation styles and messages
+            const formElements = this.elements;
+            for (const element of formElements) {
+                if (element.id) {
+                    element.classList.remove('has-error');
+                    document.getElementById(`${element.id}-error`).textContent = '';
+                }
+            }
+
+            // Check if fields are empty
+            if (!this.name.value.trim()) {
+                isValid = false;
+                this.name.classList.add('has-error');
+                document.getElementById('name-error').textContent = 'Name is required';
+            }
+
+            if (!this.email.value.trim()) {
+                isValid = false;
+                this.email.classList.add('has-error');
+                document.getElementById('email-error').textContent = 'Email is required';
+            }
+
+            if (!this.password.value.trim()) {
+                isValid = false;
+                this.password.classList.add('has-error');
+                document.getElementById('password-error').textContent = 'Password is required';
+            }
+
+            if (!this.hobbies.value && this.hobbies.value ) {
+                isValid = true;
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

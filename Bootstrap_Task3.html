@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap Task3</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+            .nav-container {
+        background-color: white; 
+        padding: 10px; 
+        border: 2px solid #ddd; 
+        border-radius: 7px; 
+        width: 100%; 
+        margin: 0 auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) 
+            }
+            .nav-link{
+                color:black;
+            }
+            .nav-link.active {
+           background-color: transparent !important; 
+           color: #1E90FF!important;
+           border: 1px solid #1E90FF !important;
+            }
+
+            p.pricing{
+                text-align: center;
+                margin:5px;
+            }
+            .card{
+                max-width: 300px;
+                height:350px;
+                flex:1;
+                border:1px solid #ddd;
+            }
+            .card-container {
+             display: flex; 
+             justify-content: center;
+             margin-left: 100px; 
+             gap:15px;
+            }
+
+            h2{
+                display:inline;
+            }
+            h5{
+                display:inline;
+                color: 	#A9A9A9;
+            }
+            p{
+                margin:1px;
+            }
+            #button{
+                background-color: transparent !important; 
+                color: #1E90FF!important;
+                border: 1px solid #1E90FF !important;
+            }
+            .list-container{
+                display:flex;
+                margin-left:600px;
+            }
+            .list{
+                list-style: none; 
+                padding-left: 0; 
+                margin-right: 110px;
+               
+            }
+            li.item{
+                color: 	#787878;
+                font-size:14px;
+            }
+         
+        </style>
+    </head>
+    <body>
+        <div class="nav-container">
+            <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#" style="color:black; font-size: 19px;">Company Name</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" style="margin-left:850px;">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Enterprises</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Support</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                  </li>
+                  <ul class="nav nav-pills">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Sign Up</a>
+                    </li>
+              </ul>
+        </div>
+        <div>
+            <p class="text-center" style="font-size:40px; margin-top:40px;">Pricing</p>
+            <p class="pricing">Quickly build an effective pricing table for your potential customers with this</p>
+            <p class="pricing">Bootstrap Example. Its build with default Bootstrap components and utilises</p>
+            <p class="pricing">with little customization.</p>
+        </div><br>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-header">
+                   <center> Free</center>
+                  </div>
+                  <div class="card-body">
+                    <center><h2 class="card-title">$0<h5 >/mo</h5></h2></center><br>
+                    <p class="card-text text-center" >10 users included</p>
+                    <p class="card-text text-center">2 GB of storage</p>
+                    <p class="card-text text-center">Email support</p>
+                    <p class="card-text text-center">Help center access</p><br>
+                    <center><a href="#" class="btn btn-primary" id="button">Sign up for free</a></center>
+                  </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                   <center> Pro</center>
+                  </div>
+                  <div class="card-body">
+                    <center><h2 class="card-title">$15<h5 >/mo</h5></h2></center><br>
+                    <p class="card-text text-center" >20 users included</p>
+                    <p class="card-text text-center">10 GB of storage</p>
+                    <p class="card-text text-center">Priority Email support</p>
+                    <p class="card-text text-center">Help center access</p><br>
+                    <center><a href="#" class="btn btn-primary">Get Satrted</a></center>
+                  </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <center>Enterprise</center>
+                  </div>
+                  <div class="card-body">
+                    <center><h2 class="card-title">$29<h5 >/mo</h5></h2></center><br>
+                    <p class="card-text text-center" >30 users included</p>
+                    <p class="card-text text-center">15 GB of storage</p>
+                    <p class="card-text text-center">Phone and Email support</p>
+                    <p class="card-text text-center">Help center access</p><br>
+                    <center><a href="#" class="btn btn-primary">Contact Us</a></center>
+                  </div>
+            </div>
+        </div><br><br>
+<div class="list-container">
+    <ul class="list">
+        <li style="font-size:19px; margin-bottom:6px;"><b>Features</b></li>
+        <li class="item">Cool Stuff</li>
+        <li class="item">Random Feature</li>
+        <li class="item">Team feature</li>
+    </ul>
+
+    <ul class="list">
+        <li style="font-size: 19px; margin-bottom: 6px;"><b>Resources</b></li>
+        <li class="item">Resource</li>
+        <li class="item">Resource Name</li>
+        <li class="item">Another resource</li>
+    </ul>
+    <ul class="list">
+        <li style ="font-size: 19px; margin-bottom: 6px;"><b>About</b></li>
+        <li class="item">Team</li>
+        <li class="item">Locations</li>
+        <li class="item">Properties</li>
+    </ul>
+</div>
+        
+            
+    </body>
+</html>
